@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAPPIZZA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="body">
+    <!--хедер-->
+    <header>
+        <div class="logo">PAPPIZZA</div>
+        <div class="city-button">Ваш город
+            <div class="city-dropdown">
+                <a href="#" onclick="changeCity('Воронеж')">Воронеж</a>
+                <a href="#" onclick="changeCity('Урюпинск')">Урюпинск</a>
+                <a href="#" onclick="changeCity('Москва')">Москва</a>
+            </div>
+        </div>
+        <div class="icons">
+            <img src="img/icons/basket.png" alt="Корзина" onclick="toggleCart()">
+            <img src="img/icons/user.png" alt="Информация">
+        </div>
+    </header>
+
+    <div class="cart-overlay" onclick="closeCart()">
+        <div class="cart">
+            <span class="close-cart" onclick="closeCart()">&times;</span>
+            <h2>Корзина</h2>
+            <ul class="cart-items"></ul>
+            <p class="total-price">Общая сумма: <span>$0</span></p>
+        </div>
+    </div>
+    
+
+    <!--слайдер-->
+    <div class="blockSlider" id="blockSlider">
+        <div class="FullArea">
+            <div class="imagesArea">
+                <img class="imageSlider" src="img/banners/slider1.png" alt="">
+                <img class="imageSlider" src="img/banners/slider2.png" alt="">
+                <img class="imageSlider" src="img/banners/slider3.png" alt="">
+            </div>
+
+            <div class="pointsAreaSize">
+                <span class="point"></span>
+                <span class="point"></span>
+                <span class="point"></span>
+            </div>
+
+            <div class="btnsAreaSize">
+                <div class="blockArrow" id="leftBtn"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+                <div class="blockArrow" id="rightBtn"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="width-structure">
+        <section class="navigation">
+            <div class="categories">
+                <div class="category">
+                    <a href="#part1">Пицца</a>
+                </div>
+                <div class="category">
+                    <a href="#part2">Закуски</a>
+                </div>
+                <div class="category">
+                    <a href="#part3">Комбо</a>
+                </div>
+                <div class="category">
+                    <a href="#part4">Напитки</a>
+                </div>
+                <div class="category">
+                    <a href="#part5">Соусы</a>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="sector-name">
+                <article id="part1">ПИЦЦА</article>
+            </div>
+            <div class="cards"> 
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/bavarskaya.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Баварская</h3>   
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Баварские колбаски, маринованные огурчики, красный лук, томаты, горчичный соус, моцарелла, фирменный томатный соус</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 819₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/karbonara.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Карбонара</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок, фирменный соус альфредо, итальянские травы</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 749₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/pesto.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Песто</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Цыпленок, соус песто, кубики брынзы, томаты, моцарелла, фирменный соус альфредо</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 779₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/burger.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Пицца-бургер</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Ветчина, маринованные огурчики, томаты, красный лук, чеснок, соус бургер, моцарелла, фирменный томатный соус</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 719₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/cipabarbeku.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Цыпленок баребкю</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Цыпленок, бекон, соус барбекю, красный лук, моцарелла, фирменный томатный соус</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 649₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/diablo.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Диабола</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Острая чоризо, острый перец халапеньо, соус барбекю, митболы из говядины, томаты, сладкий перец, красный лук, моцарелла, фирменный томатный соус</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 689₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/fourseason.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Четыре сезона</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Увеличенная порция моцареллы, ветчина, пикантная пепперони, кубики брынзы, томаты, шампиньоны, итальянские травы, фирменный томатный соус</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 799₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/gavayskaya.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Гавайская</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Двойная порция цыпленка, ананасы, моцарелла, фирменный соус альфредо</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 669₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/margarita.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Маргарита</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Увеличенная порция моцареллы, томаты, итальянские травы, фирменный томатный соус</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 749₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/myasnaya.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Мясная</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Цыпленок, ветчина, пикантная пепперони, острая чоризо, моцарелла, фирменный томатный соус</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 779₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/sirnaya.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Четыре сыра</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Моцарелла, сыры чеддер и пармезан, фирменный соус альфредо</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 719₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/veganskaya.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Для особых</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Шампиньоны, томаты, сладкий перец, красный лук, кубики брынзы, моцарелла, фирменный томатный соус, итальянские травы</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 699₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/pizza/vetchina.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Ветчина и грибы</h3>
+                    </div>
+                    <div class="size-toggle">
+                        <div class="size">33 см</div>
+                        <div class="size selected">40 см</div>
+                    </div>
+                    <div class="product-in">
+                        <p>Ветчина, шампиньоны, увеличенная порция моцареллы, фирменный томатный соус</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 709₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+              </div>
+
+            <div class="sector-name">
+                <article id="part2">ЗАКУСКИ</article>
+            </div>
+            <div class="cards">
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/sandwich.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Сендвич</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Поджаристая чиабатта и знакомое сочетание ветчины, цыпленка, моцареллы со свежими томатами, соусом ранч и чесноком</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 259₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/pastaPesto.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Паста Песто</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Паста из печи с соусом песто, цыпленком, томатами, моцареллой и фирменным томатным соусом</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 459₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/pastaPesto.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Паста Песто</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Паста из печи с соусом песто, цыпленком, томатами, моцареллой и фирменным томатным соусом</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 459₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/pastaMyasnaya.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Паста Мясная</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Паста из печи с митболами, соусом бургер, моцареллой, фирменным томатным соусом и чесноком</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 439₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/pastaKarbonara.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Паста Карбонара</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Паста из печи с беконом, сырами чеддер и пармезан, томатами, моцареллой, фирменным соусом альфредо и чесноком</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 419₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/nechto1.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Грибной Стартер</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Горячая закуска с шампиньонами, моцареллой и соусом ранч в тонкой пшеничной лепешке</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 219₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/nechto2.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Сырный Стартер</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Горячая закуска с очень сырной начинкой. Моцарелла, пармезан, чеддер и соус ранч в тонкой пшеничной лепешке</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 219₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/naggetsi.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Куриные Наггетсы</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Нежное куриное мясо в хрустящей панировке</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 169₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/naggetsi.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Ланчбокс с крылышками</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Горячий сытный обед из куриных крылышек со специями и ароматом копчения, пряного картофеля из печи и соуса барбекю</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 329₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/naggetsi.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Ланчбокс с курицей</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Горячий сытный обед из нежных куриных кусочков, пряного картофеля из печи и сырного соуса</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 329₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/naggetsi.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Крылышки барбекю</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Куриные крылышки со специями и ароматом копчения</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 129₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/zakuski/naggetsi.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Картофель из печи</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Запеченная в печи картошечка — привычный вкус и мало масла. В составе пряные специи</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 199₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="sector-name">
+                <article id="part3">КОМБО</article>
+            </div>
+            <div class="cards">
+                <div class="product-card">
+                    <img class="product-image" src="img/combo/4in1.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Четыре в одном</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Если хочется всего понемногу. Маленькая пицца, закуска, напиток и соус. Цена комбо зависит от выбранных продуктов и может быть увеличена</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 1559₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/combo/4zakuski.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Четыре закуски</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Сытный квартет для маленькой компании. Комбо из четырех закусок на выбор</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 959₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/combo/3for33sm.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Три Пиццы 33см</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Настоящая дегустация. Три маленькие пиццы по суперцене. Цена комбо зависит от выбранных пицц и может быть увеличена</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 1999₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/combo/2pizzaandcola.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">2 Пиццы и напиток</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Для уютных посиделок. 2 маленькие пиццы и напиток на выбор. Для компании из 2-4 человек. Цена комбо зависит от выбранных продуктов и может быть увеличена</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 1559₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sector-name">
+                <article id="part4">НАПИТКИ</article>
+            </div>
+            <div class="cards">
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/cola.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Добрый Кола</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 99₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/colafree.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Добрый Кола без сахара</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 99₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/fanta.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Добрый Апельсин</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 89₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/sprite.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Добрый Лимон-Лайм</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 89₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/sokapelsin.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Rich Апельсин</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 129₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/sokvishnya.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Rich Вишня</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 129₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/sokyabloko.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Rich Яблоко</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 129₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/mors.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Морс клюквенный</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 109₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/napitki/voda.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Вода BonaAqua</h3>   
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 69₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sector-name">
+                <article id="part5">СОУСЫ</article>
+            </div>
+            <div class="cards">
+                <div class="product-card">
+                    <img class="product-image" src="img/sous/sirni.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Сырный соус</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Фирменный соус со вкусом расплавленного сыра для бортиков пиццы и горячих закусок, 25 г</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 45₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/sous/chesnok.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Чесночный соус</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Фирменный соус с чесночным вкусом для бортиков пиццы и горячих закусок, 25 г</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 45₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/sous/barbeku.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">Соус барбекю</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Фирменный соус с дымным ароматом для бортиков пиццы и горячих закусок, 25 г </p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 45₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="img/sous/2sous.png" alt="Pizza Image">
+                    <div class="product-info">
+                        <h3 class="product-title">2 Соуса</h3>   
+                    </div>
+                    <div class="product-in">
+                        <p>Комбинируйте пары соусов для ярких перекусов</p>
+                    </div>
+                    <div class="price-toggle">
+                        <h3>Цена: 70₽</h3>
+                        <button class="add-to-cart">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--навигация по категориям -->
+    
+    <!--товары-->
+    
+    <!-- футерок браток -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-item">Контакты</div>
+            <div class="footer-item">Адрес</div>
+            <div class="footer-item">О нас</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
