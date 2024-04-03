@@ -66,8 +66,8 @@ function slowSlider () {
     point[counter].classList.add('activeImage');
 }
 
-let second = 1000*2
-let TimerImage = setInterval(()=>slowSlider(), second)
+let seconds = 5000
+let TimerImage = setInterval(()=>slowSlider(), seconds)
 
 let blockSlider = document.getElementById('blockSlider')
 blockSlider.addEventListener('mouseover',()=>{
@@ -75,21 +75,16 @@ blockSlider.addEventListener('mouseover',()=>{
 })
 
 blockSlider.addEventListener('mouseleave',()=>{
-    TimerImage = setInterval(()=>slowSlider(), second)
+    TimerImage = setInterval(()=>slowSlider(), seconds)
 })
 
 //cart
 let cartItems = [];
 let cartTotal = 0;
 
-const addToCart = (productName, productPrice) => {
-    cartItems.push({ name: productName, price: productPrice });
+const addToCart = (productName, productPrice, productImage) => {
+    cartItems.push({ name: productName, price: productPrice, image: productImage });
     updateCart();
-};
-
-const removeFromCart = (index) => {
-    cartItems.splice(index, 1); // Удаляем товар из массива корзины по индексу
-    updateCart(); // Обновляем отображение корзины
 };
 
 const updateCart = () => {
@@ -102,20 +97,18 @@ const updateCart = () => {
     cartItems.forEach((item, index) => {
         cartTotal += item.price;
         const listItem = document.createElement('li');
-        listItem.textContent = `${index + 1}. ${item.name} - $${item.price}`;
-        
-        // Добавляем кнопку "удалить" для каждого элемента корзины
-        const removeButton = document.createElement('button');
-        removeButton.textContent = 'Удалить';
-        removeButton.addEventListener('click', () => {
-            removeFromCart(index); // Вызываем функцию удаления товара из корзины по индексу
-        });
-        listItem.appendChild(removeButton);
-
+        const img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.name;
+        img.width = 50;
+        img.height = 50;
+        listItem.appendChild(img);
+        const text = document.createElement('span');
+        text.textContent = ` ${item.name} - ${item.price}₽`;
+        listItem.appendChild(text);
         cartList.appendChild(listItem);
     });
-
-    totalElement.textContent = `$${cartTotal}`;
+    totalElement.textContent = `${cartTotal}₽`;
 };
 
 const toggleCart = () => {
@@ -137,15 +130,18 @@ const initiateCart = () => {
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (event) => {
-            event.preventDefault(); // предотвращаем действие по умолчанию (переход по ссылке)
-            const productName = button.parentElement.parentElement.querySelector('.product-title').textContent; // изменено
-            const productPrice = parseFloat(button.parentElement.parentElement.querySelector('.price').textContent.replace('$', '')); // изменено
-            addToCart(productName, productPrice);
+            event.preventDefault();
+            const productName = button.parentElement.parentElement.querySelector('.product-title').textContent;
+            const productPrice = parseFloat(button.parentElement.parentElement.querySelector('.price-toggle h3').textContent.match(/\d+(\.\d+)?/)[0]);
+            const productImage = button.parentElement.parentElement.querySelector('.product-image').src; 
+            addToCart(productName, productPrice, productImage);
         });
     });
 };
 
 initiateCart();
+
+
 
 
 
